@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tủ sách Tiến bộ</title>
+    <!-- Moi stylesheets -->
+    <link rel="stylesheet" href="center.css">
+    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="font.css">
+    <link rel="stylesheet" href="table.css">
+</head>
+<body>
+    <center>
+    <!-- decorative divider -->
+    <table border="0" bgcolor="#339999" width="25%" height="18"><tr><td></td></tr></table>
+    <!-- page content -->
+    <h1 class="title">Tủ sách TIẾN-BỘ</h1>
+    <i>Nơi tổng hợp và lưu trữ các tài liệu liên quan đến hai nhà cách mạng Nguyễn An Ninh và Tạ Thu Thâu</i>
+    <br><br><br><br><br>
+    <table class="table" cellpadding="10">
+        <tr>
+            <td>
+                <center>
+                    <h1>TÌM KIẾM TÀI LIỆU</h1>
+                    <form id="searchForm">
+                        <input type="text" id="searchInput" placeholder="Type your search here..." />
+                        <button type="submit">Search</button><br><br>
+                        <a href="/">Về trang chính</a><br>
+                    </form>
+                </center>
+            </td>
+        </tr>
+    </table>
+
+
+    <script>
+    // JavaScript to handle the search
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Stop form from refreshing the page
+        
+        const query = document.getElementById('searchInput').value.trim();
+        if (!query) return; // no empty searches, silly!
+
+        // The website you want to restrict the search to (replace with your site)
+        const site = 'example.com'; // <-- change this to your target website!
+
+        // Construct DuckDuckGo search URL with "site:" operator
+        const duckDuckGoURL = `https://duckduckgo.com/?q=site:${encodeURIComponent(site)}+${encodeURIComponent(query)}`;
+
+        // Open the search in a new tab (you can change to same tab if you want)
+        window.open(duckDuckGoURL, '_blank');
+    });
+    </script>
+</center>
+</body>
